@@ -52,3 +52,13 @@ example command
 rg "keyword" ~/notes            # search every note
 rg --files ~/notes | fzf        # pick a file by name
 ```
+
+## Courses
+
+| Course | Topic | Link |
+| --- | --- | --- |
+| MIT Missing Semester | Shell, tools & workflow | [missing.csail.mit.edu](https://missing.csail.mit.edu/) |
+| MIT 6.1810 | Operating Systems | [Schedule](https://pdos.csail.mit.edu/6.1810/2026/schedule.html) |
+| Kurose & Ross | Computer Networks (Wireshark labs) | [Labs](https://gaia.cs.umass.edu/kurose_ross/wireshark.php) |
+| MIT 6.5840 | Distributed Systems | [Schedule](https://pdos.csail.mit.edu/6.824/schedule.html) |
+| MIT 6.5660 | Computer Systems Security | [Course site](https://css.csail.mit.edu/6.5660/2026/) |
