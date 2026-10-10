@@ -10,6 +10,7 @@ My learning notes and small working examples, written in my own words.
 | [python/](python/) | Python language basics and examples |
 | [neovim/](neovim/) | Neovim config, plugins, LSP and completion |
 | [git/](git/) | Git commands and workflows |
+| [SQL/](SQL/) | A SQL language basics and examples |
 
 ## Layout
 
