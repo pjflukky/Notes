@@ -165,8 +165,15 @@ TRUNCATE TABLE students;                      -- keeps table, deletes all rows
 
 ### Order a query must be written in
 Clauses can't be rearranged; leave out the ones I don't need, keep the rest in this order.
-```
-SELECT → FROM → JOIN → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT
+```sql
+SELECT    name, salary        -- 1. which columns
+FROM      employee            -- 2. which table
+JOIN      ...                 -- 3. combine with other tables
+WHERE     salary > 50000      -- 4. filter rows
+GROUP BY  ...                 -- 5. group rows together
+HAVING    ...                 -- 6. filter groups
+ORDER BY  salary DESC         -- 7. sort
+LIMIT     10;                 -- 8. cut to N rows
 ```
 `... LIMIT 10 ORDER BY salary` is an error. Inside one clause the order is free:
 `SELECT name, salary` vs `SELECT salary, name` just swaps the result columns.
