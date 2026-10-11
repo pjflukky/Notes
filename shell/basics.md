@@ -16,6 +16,11 @@ cd ~                # go home
 cd -                # go back to the previous folder
 ```
 
+**Absolute vs relative paths**
+- Absolute starts with `/` → full path from the root: `/home/pakorn/notes`
+- Relative doesn't → starts from where I am now: `notes/shell`
+- `.` = this folder, `..` = the parent folder
+
 ## Files and folders
 ```bash
 mkdir notes             # make a folder
@@ -52,9 +57,23 @@ cmd > out.txt           # write output to a file (overwrites)
 cmd >> out.txt          # append output to a file
 cmd1 && cmd2            # run cmd2 only if cmd1 succeeded
 cmd1 || cmd2            # run cmd2 only if cmd1 failed
+cmd < in.txt            # read input from a file instead of the keyboard
+cmd 2> err.txt          # write only the errors to a file
+cmd > out.txt 2>&1      # write output AND errors to the same file
+cmd &> all.txt          # same thing, shorter (bash/zsh)
+cmd | tee log.txt       # show output on screen AND save it to a file
 ```
 
 Example: `ls | wc -l` counts the files in a folder.
+
+**The 3 streams**
+| Number | Name | What it is |
+|---|---|---|
+| 0 | stdin | input (normally the keyboard) |
+| 1 | stdout | normal output |
+| 2 | stderr | error messages |
+
+A pipe `|` only passes **stdout**, so errors still show on screen.
 
 ## Variables
 ```bash
@@ -77,7 +96,19 @@ sudo cmd                # run as administrator
 man ls                  # full manual (q to quit)
 ls --help               # quick summary of flags
 which nvim              # where a command lives
+tldr tar                # short, example-based help (install tldr first)
+type cd                 # tells me if something is a program or a shell builtin
 ```
+
+**How the shell finds a program**
+When I type `date`, the shell looks through the folders in `$PATH`
+(separated by `:`) from left to right and runs the first `date` it finds.
+```bash
+echo $PATH              # see the list of folders
+/bin/echo hi            # skip $PATH by giving the full path
+```
+`cd` is not a program in `$PATH`. It's built into the shell, because a
+separate program can't change the folder of the shell that started it.
 
 ## Shortcuts while typing
 | Keys | Does |
@@ -97,7 +128,23 @@ which nvim              # where a command lives
 - Quote variables that might contain spaces: `"$file"`, not `$file`.
 - `>` overwrites the file. Use `>>` to add to it.
 - `source file` runs it in the **current** shell; `./file` runs it in a new one.
+- Spaces split arguments. For a name with spaces, quote it or escape it:
+  `cd "My Photos"` or `cd My\ Photos`.
+- Quotes behave differently:
+
+| Quote | `$var` and `$(cmd)` expanded? | Example |
+|---|---|---|
+| `'single'` | No, everything is literal | `echo '$HOME'` → `$HOME` |
+| `"double"` | Yes | `echo "$HOME"` → `/home/pakorn` |
+| `$'ansi'` | No, but `\n` `\t` work | `echo $'a\nb'` → two lines |
 
 ## Example
 [examples/organize.sh](examples/organize.sh) sorts files in a folder into
 subfolders by extension. Shows variables, arguments, `if`, `for`, functions.
+
+## See also
+- [text-processing.md](text-processing.md): grep, sed, find, awk, sort, xargs
+- [bash-scripting.md](bash-scripting.md): writing real scripts
+
+## Links
+- [Missing Semester: Course overview + the shell](https://missing.csail.mit.edu/2026/course-shell/)
