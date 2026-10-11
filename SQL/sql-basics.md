@@ -163,6 +163,18 @@ DROP TABLE enrollments;                       -- deletes table AND data
 TRUNCATE TABLE students;                      -- keeps table, deletes all rows
 ```
 
+### Order a query must be written in
+Clauses can't be rearranged; leave out the ones I don't need, keep the rest in this order.
+```
+SELECT → FROM → JOIN → WHERE → GROUP BY → HAVING → ORDER BY → LIMIT
+```
+`... LIMIT 10 ORDER BY salary` is an error. Inside one clause the order is free:
+`SELECT name, salary` vs `SELECT salary, name` just swaps the result columns.
+Separate statements (each ending in `;`) run top to bottom.
+
+Keywords are case-insensitive (`select` = `SELECT`); capitals are just a convention.
+Table names are not always: MySQL on Linux treats `Person` and `person` as different tables.
+
 ### Order a query is actually run in
 Written order ≠ execution order. This explains most "why can't I use that alias here" errors.
 ```
