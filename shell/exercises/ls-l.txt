@@ -1,0 +1,7 @@
+command: ls -l
+
+-  rw-  r--  r--
+│  │    │    └── others (everyone else): read only
+│  │    └─────── group (members of group "pakorn"): read only
+│  └──────────── owner (user "pakorn"): read + write
+└─────────────── type: - = regular file, d = directory, l = symlink

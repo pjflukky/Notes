@@ -1,0 +1,5 @@
+| Quotes | `$var` expanded? | `\n` becomes a newline? | `!` triggers history? |
+|---|---|---|---|
+| `'single'` | No | No | No |
+| `"double"` | Yes | No | Yes (in interactive bash/zsh) |
+| `$'ANSI-C'` | No | Yes | No |

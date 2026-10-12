@@ -1,0 +1,3 @@
+ls *.txt          # * = any number of characters (including none)
+ls file?.txt      # ? = exactly one character → file1, file2, but NOT file10
+ls {a,b,c}.txt    # expands to: ls a.txt b.txt c.txt
