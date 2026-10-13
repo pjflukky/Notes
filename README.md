@@ -11,6 +11,7 @@ My learning notes and small working examples, written in my own words.
 | [neovim/](neovim/) | Neovim config, plugins, LSP and completion |
 | [git/](git/) | Git commands and workflows |
 | [SQL/](SQL/) | A SQL language basics and examples |
+| [debugging/](debugging/) | Debugging tools (gdb, rr, strace, sanitizers) and profiling (perf, flame graphs, hyperfine) |
 
 ## Layout
 
