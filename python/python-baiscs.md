@@ -115,6 +115,10 @@ class Dog:
 Dog("Max").bark()
 ```
 
+## Built-in functions
+`print`, `len`, `set`, `sorted`, `zip`, `enumerate` and the rest, with
+examples: see [built-in-functions.md](built-in-functions.md).
+
 ## Modules and imports
 ```python
 import math                     # standard library: comes with Python
