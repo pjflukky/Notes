@@ -117,7 +117,12 @@ Dog("Max").bark()
 
 ## Built-in functions
 `print`, `len`, `set`, `sorted`, `zip`, `enumerate` and the rest, with
-examples: see [built-in-functions.md](built-in-functions.md).
+examples: see [built-in-functions.md](built-in-functions.md). That note also
+covers `set` and `dict` methods.
+
+## collections
+`deque` (queues/stacks), `Counter`, `defaultdict`: see
+[collections.md](collections.md).
 
 ## Modules and imports
 ```python

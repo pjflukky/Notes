@@ -94,6 +94,56 @@ sorted(set(nums))             # [1, 2, 3]  (sorted list)
 key = frozenset({1, 2})
 ```
 
+## dict
+A dict maps **keys to values**, like a hash table (`HashMap` in Java,
+`std::unordered_map` in C++). Lookups by key are fast. Since Python 3.7 it
+remembers insertion order.
+
+Not the same as `map()`: that's a function that applies another function to
+every item (see Functional tools below).
+```python
+d = {}                        # empty dict (same as dict())
+d = {"a": 1, "b": 2}
+
+# Reading
+d["a"]              # 1
+d["z"]              # KeyError
+d.get("z")          # None  (no error)
+d.get("z", 0)       # 0     (default if missing)
+"a" in d            # True  (checks keys, O(1))
+len(d)              # 2
+
+# Writing
+d["c"] = 3          # add or overwrite
+d.update({"x": 9, "a": 10})        # merge another dict in
+d.setdefault("lst", []).append(5)  # insert [] only if missing, then use it
+
+# Removing
+d.pop("x")          # removes "x", returns 9
+d.pop("zzz", None)  # no KeyError when you give a default
+del d["c"]          # remove without returning
+d.clear()           # empty it
+
+# Looping
+d = {"a": 1, "b": 2}
+for k in d:                 # keys
+    print(k)
+for k, v in d.items():      # key and value
+    print(k, v)
+list(d.keys())              # ['a', 'b']
+list(d.values())            # [1, 2]
+
+# Counting pattern (very common on LeetCode)
+count = {}
+for ch in "hello":
+    count[ch] = count.get(ch, 0) + 1   # {'h': 1, 'e': 1, 'l': 2, 'o': 1}
+
+# Dict comprehension
+squares = {n: n * n for n in range(4)} # {0: 0, 1: 1, 2: 4, 3: 9}
+```
+`collections` has dict variants that make counting and grouping shorter
+(`Counter`, `defaultdict`): see [collections.md](collections.md).
+
 ## Numbers
 ```python
 abs(-7)             # 7
@@ -194,6 +244,10 @@ id(d)                       # identity of the object (memory address in CPython)
 
 ## Gotchas
 - `{}` is an empty **dict**. An empty set is `set()`.
+- `d[key]` raises `KeyError` on a missing key; use `d.get(key, default)` when
+  missing is normal.
+- Don't add or remove dict keys while looping over the dict: loop over
+  `list(d)` instead.
 - Sets have no order and no indexing: `s[0]` is an error.
 - Set items and dict keys must be hashable: `{[1, 2]}` fails, `{(1, 2)}` works.
 - `sorted(x)` returns a new list; `x.sort()` sorts in place and returns `None`.
