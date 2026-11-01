@@ -190,6 +190,7 @@ git config --global core.excludesfile ~/.gitignore_global
 - [ ] Merge conflict drill: `recipe.txt`, branches `salty` / `sweet` edit the same line, merge both into main, resolve, view with `git log --graph --oneline`
 
 ## Links
+- [GitHub setup: new repo + SSH auth](github-setup.md) (my note)
 - [Missing Semester: Version Control](https://missing.csail.mit.edu/2026/version-control/)
 - [Pro Git](https://git-scm.com/book/en/v2) (ch. 1–5 cover daily use)
 - [Learn Git Branching](https://learngitbranching.js.org/)
